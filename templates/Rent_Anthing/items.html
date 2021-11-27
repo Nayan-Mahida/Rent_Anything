@@ -1,0 +1,31 @@
+{% extends 'Rent_Anthing/base.html' %}
+
+{% block title %}
+    Products
+{% endblock %}
+
+
+{% block body %}
+<h1>Products</h1>
+<div class="container">
+{% for items in items %}
+ <div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="col">
+    <div class="card h-100">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{ items.name }}</h5>
+        <p class="card-text">{{ items.description }}</p>
+        <p class="card-text">{{ items.rate }}</p>
+        <p class="card-text">{{ items.quantity }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+ {% endfor %}
+</div>
+
+
+    <a href="{% url 'create_product' %}" class="btn btn-success"><i class="fas fa-plus"></i> Add a new product</a>
+
+{% endblock %}

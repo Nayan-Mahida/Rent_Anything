@@ -1,0 +1,19 @@
+{% extends 'Rent_Anthing/base.html' %}
+
+{% block title %}
+    Delete-Confirm
+{% endblock %}
+
+{% block body %}
+    <h1>Confirm</h1>
+
+    <form method="post" action="{% url 'delete_product' product.id %}">
+        {% csrf_token %}
+        <h4>Are you sure that you want to delete
+            <span class="badge bg-danger">{{ product.description }}</span>?</h4>
+
+        <a href="{% url 'view_products' %}" class="btn btn-info"><i class="fas fa-arrow-left"></i> Go Back</a>
+        <button type="submit" class="btn btn-success">Yes, I am sure!</button>
+    </form>
+
+{% endblock %}
