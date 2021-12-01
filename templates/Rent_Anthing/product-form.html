@@ -1,5 +1,6 @@
 {% extends 'Rent_Anthing/base.html' %}
-
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
 
 {% block title %}
     Product Form
@@ -7,11 +8,54 @@
 
 {% block body %}
 
-    <h1>Product Form</h1>
+     <h1>Product Form</h1>
     <form method="post" action="">
         {% csrf_token %}
+        {{ form|crispy }}
 
-
+<!--
+ <h1>Product Form</h1>
+    <form class="row g-3">
+  <div class="col-md-6">
+    <label for="inputEmail4" class="form-label">Name</label>
+    <input type="name" class="form-control" id="inputName">
+  </div>
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Cell No</label>
+    <input type="number" class="form-control" id="inputNum">
+  </div>
+  <div class="col-12">
+    <label for="inputAddress" class="form-label">Address</label>
+    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+  </div>
+  <div class="col-12">
+    <label for="inputAddress2" class="form-label">Address 2</label>
+    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+  </div>
+  <div class="col-md-6">
+    <label for="inputCity" class="form-label">City</label>
+    <input type="text" class="form-control" id="inputCity">
+  </div>
+  <div class="col-md-4">
+    <label for="inputState" class="form-label">State</label>
+    <select id="inputState" class="form-select">
+      <option selected>Choose...</option>
+      <option>...</option>
+    </select>
+  </div>
+  <div class="col-md-2">
+    <label for="inputZip" class="form-label">Zip</label>
+    <input type="text" class="form-control" id="inputZip">
+  </div>
+  <div class="col-12">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="gridCheck">
+      <label class="form-check-label" for="gridCheck">
+        Check me out
+      </label>
+    </div>
+  </div>
+-->
         <div class="my-3">
             <a href="{% url 'view_products' %}" class="btn btn-info"><i class="fas fa-arrow-left"></i> Go Back</a>
             <button type="reset" class="btn btn-warning"><i class="fas fa-redo-alt"></i> Reset</button>

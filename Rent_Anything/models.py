@@ -5,15 +5,18 @@ from django.db import models
 # When saving a product into the db we can use these options as product category
 PRODUCT_CATEGORY = (
     ('Electronic', 'Electronic'),
-    ('Dairy', 'Dairy'),
-    ('Snack', 'Snack'),
+    ('Car', 'Car'),
+    ('Outdoor', 'Outdoor'),
+    ('Maintenance', 'Maintenance'),
+    ('Book', 'Book'),
     ('Other', 'Other'),
 )
 
 class items(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=100)
-    rate = models.DecimalField(max_digits=9, decimal_places=2)
+    price = models.DecimalField(max_digits=9, decimal_places=2)
+    address = models.CharField(max_length=100)
     quantity = models.IntegerField()
     category = models.CharField(max_length=20, blank=True, choices=PRODUCT_CATEGORY)
 

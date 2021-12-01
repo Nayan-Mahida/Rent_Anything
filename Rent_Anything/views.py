@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
-from .forms import itemsForm
+from .forms import itemsForm, UserCrationForm, AuthForm
+from django.contrib.auth import login, logout
 from .models import items
 
 # CRUD Operations: Create, Retrieve, Update, Delete
@@ -56,3 +57,27 @@ def delete_product(request, id):
 
     # if the request is not post, render the page with the product's info
     return render(request, 'Rent_Anthing/delete-confirm.html', {'product': product})
+
+def register_user(request):
+    form = UserCrationForm(request.POST or None)
+    if request.method == 'POST':
+        if itemsForm.is_valid():
+            form.save()
+            return redirect('view_products')
+    context = {'form': form}
+    return render(request, 'Rent_Anthing/register.html', context)
+
+
+def login_user(request):
+    form = AuthForm(request.POST or None)
+    if request.method == 'POST':
+        if itemsForm.is_valid():
+            user = form.get_user()
+            login(request, user)
+            return redirect('view_products')
+    context = {'form': form}
+    return render(request, 'Rent_Anthing/register.html', context)
+
+def logout_view(request):
+    logout(request)
+    return redirect('items')

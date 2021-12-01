@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Rent_Anything.apps.RentAnythingConfig',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
