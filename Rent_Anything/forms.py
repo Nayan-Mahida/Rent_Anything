@@ -8,6 +8,7 @@ class itemsForm(forms.ModelForm):
     class Meta:
         model = items
         fields = '__all__'
+        exclude = ['user']
 
 class UserCrationForm(UserCreationForm):
     email = forms.EmailField(required=True, label='Email')

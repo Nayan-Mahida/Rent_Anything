@@ -1,12 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:600|Open+Sans:600&display=swap');
+
 body {
-    background-color: #fefefe;
+    background: linear-gradient(bottom, #c8fffd, antiquewhite);
 }
-
-.update-icon {
-    color: #339af0;
-}
-
-.delete-icon {
-    color: #ff6b6b;
-}
-
